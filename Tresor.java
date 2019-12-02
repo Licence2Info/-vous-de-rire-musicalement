@@ -1,11 +1,12 @@
-package JeuxLabyrinthe;
+
 
 
 public class Tresor extends Objet {
-	
-	public Tresor(Piece p, int numero, Position po) {
-		super(p, numero, po);
+	public Tresor(Piece p)
+	{
+		super(p);
 	}
+	
 	
 	public void affiche()
 	{

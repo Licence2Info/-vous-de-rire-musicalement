@@ -1,17 +1,14 @@
-package JeuxLabyrinthe;
+
 
 
 public class Objet {
 	
 	Piece position;
 	int numero;
-	Position po;
 	
-	public Objet(Piece p,int numero,Position po)
+	public Objet(Piece p)
 	{
-		this.position = p;
-		this.numero=numero;
-		this.po=po;
+		position = p;
 	}
 	
 	public void affiche()
@@ -29,15 +26,6 @@ public class Objet {
 		position = p;
 	}
 	
-	
-	public Position getPo() {
-		return po;
-	}
-
-	public void setPo(Position po) {
-		this.po = po;
-	}
-
 	public void pris()
 	{
 		position = null;

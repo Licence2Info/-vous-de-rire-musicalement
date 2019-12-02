@@ -1,4 +1,5 @@
-package JeuxLabyrinthe;
+
+
 
 import java.util.Scanner;
 
@@ -97,7 +98,7 @@ public class Piece {
 	public Piece pieceVoisine(char r)
 	{
 		Porte po = getPorte(r);
-//		
+
 		
 		if(po != null){
 			return po.autrePiece(this);

@@ -1,4 +1,4 @@
-/*package JeuxLabyrinthe;
+
 
 
 public class Medecin extends Individu {
@@ -13,4 +13,4 @@ public class Medecin extends Individu {
 	  }
 	  
 
-}*/
+}

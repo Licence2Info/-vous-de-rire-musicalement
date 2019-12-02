@@ -1,12 +1,12 @@
-package JeuxLabyrinthe;
+
 
 public class Monstre extends Individu {
 	
 	private int force;
-
-	public Monstre(Piece p, int num, Position pos,int force)
+	
+	public Monstre(Piece p)
 	{
-		super(p, num, pos);
+		super(p);
 		final int MINFORCE = 5;
 		final int  MAXFORCE = 20;
 		force = MINFORCE;

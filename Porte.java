@@ -1,27 +1,28 @@
-package JeuxLabyrinthe;
+
 
 
 public class Porte {
 	private Piece devant;
 	private Piece derriere;
 	private boolean ferme;
-	int numeroC;
-
+	int numero;
+	
 	public Porte()
 	{
 		ferme = false;
 	}
 	
-	public void PorteOuvert(int i)
+	public Porte(int i)
 	{
-		numeroC = i;
-		this.ferme = true;
+
+		numero = i;
+		ferme = true;
 	}
 	
 	public void affiche()
 	{
 		if (ferme)
-			System.out.println("porte ferm�e Num�ro"+numeroC);
+			System.out.println("porte ferme Numero"+numero);
 		else
 			System.out.println("porte ouverte");
 		
@@ -46,9 +47,9 @@ public class Porte {
 		return ferme;
 	}
 	
-	public int getNumeroC()
+	public int getNumero()
 	{
-		return numeroC;
+		return numero;
 	}
 	public void ouvrir()
 	{
