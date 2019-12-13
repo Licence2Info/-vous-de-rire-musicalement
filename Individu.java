@@ -1,47 +1,24 @@
-package JeuxLabyrinthe;
 
-public abstract class Individu {
-
-    private Piece position;
-    private int individuId;
-    private Position pos;
-
-    public Individu(Piece p,int num,Position pos) {
-        position = p;
-        this.individuId=num;
-        this.pos=pos;
-    }
-
-    public void affiche() {
-        position.affiche();
-    }
-
-    public void setPosition(Piece position) {
-		this.position = position;
+public abstract class Individu extends Entite {
+	
+	private int nbOpmax; // Nombre maximal d'opérations que cet individu peut effectuer pour le joueur
+	
+	public Individu(Piece piece) {
+		super(piece);
+		this.nbOpmax = 3; // par défaut ce nombre est de 3
 	}
-    
-
-	public int getIndividuId() {
-		return individuId;
+	
+	public Individu(Piece piece, int nbOpmax) {
+		super(piece);
+		this.nbOpmax = nbOpmax;
 	}
 
-	public void setIndividuId(int individuId) {
-		this.individuId = individuId;
+	public int getNbOpmax() {
+		return nbOpmax;
 	}
 
-	public Position getPos() {
-		return pos;
+	protected void decrNbOpMax() {
+		this.nbOpmax--;
 	}
-
-	public void setPos(Position pos) {
-		this.pos = pos;
-	}
-
-	public void deplacer(char r) {
-    	position = position.pieceVoisine(r);
-    }
-
-    public Piece getPosition() {
-        return position;
-    }
+	
 }

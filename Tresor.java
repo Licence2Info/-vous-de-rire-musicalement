@@ -1,15 +1,14 @@
-package JeuxLabyrinthe;
 
+public class Tresor extends Entite {
 
-public class Tresor extends Objet {
-	
-	public Tresor(Piece p, int numero, Position po) {
-		super(p, numero, po);
+	public Tresor(Labyrinthe l) {
+		super(l);
 	}
-	
-	public void affiche()
-	{
-		System.out.println("Tresor");
+
+	@Override
+	public void executeOp(Joueur j) {
+		System.out.println("Félicitations vous avez trouvé le trésor !");
+		System.exit(1);		
 	}
 
 }
