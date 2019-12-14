@@ -1,3 +1,9 @@
+import java.awt.Font;
+import java.awt.Graphics;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
 
 public class Medecin extends Individu {
 
@@ -14,7 +20,7 @@ public class Medecin extends Individu {
 		int defaultPtVie = j.getDefaultPtVie();
 		if(this.getNbOpmax() > 0 && j.getPtVie() < defaultPtVie) {
 			j.setPtVie(defaultPtVie);
-			super.decrNbOpMax();
+			this.decrNbOpMax();
 		}
 	}
 

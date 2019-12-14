@@ -10,5 +10,9 @@ public class Tresor extends Entite {
 		System.out.println("Félicitations vous avez trouvé le trésor !");
 		System.exit(1);		
 	}
+	
+	public boolean estActif() {
+		return true;
+	}
 
 }

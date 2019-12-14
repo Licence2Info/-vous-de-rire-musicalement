@@ -57,6 +57,8 @@ public abstract class Entite extends JLabel{
 	}
 	
 	public abstract void executeOp(Joueur j);
+	
+	public abstract boolean estActif();
 
 	@Override
 	public String toString() {

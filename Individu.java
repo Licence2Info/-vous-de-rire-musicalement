@@ -1,3 +1,5 @@
+import java.awt.Font;
+import java.awt.Graphics;
 
 public abstract class Individu extends Entite {
 	
@@ -21,4 +23,17 @@ public abstract class Individu extends Entite {
 		this.nbOpmax--;
 	}
 	
+	public boolean estActif() {
+		return nbOpmax > 0;
+	}
+	
+	@Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Font fonte = new Font("TimesRoman ",Font.BOLD,9);
+		g.setFont(fonte);
+		int x = this.maCase.getX();
+    	int y = this.maCase.getY();
+		g.drawString(Integer.toString(this.getNbOpmax()),61*x+9, 61*y+15);
+    }
 }

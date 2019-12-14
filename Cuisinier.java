@@ -14,7 +14,7 @@ public class Cuisinier extends Individu {
 		int defaultPtForce = j.getDefaultPtForce();
 		if(this.getNbOpmax() > 0 && j.getPtForce() < defaultPtForce) {
 			j.setPtForce(defaultPtForce);
-			super.decrNbOpMax();
+			this.decrNbOpMax();
 		}
 	}
 

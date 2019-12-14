@@ -17,4 +17,7 @@ public abstract class Objet extends Entite {
 		j.addToObjects(this);
 	}
 	
+	public boolean estActif() {
+		return !estConsomme;
+	}
 }

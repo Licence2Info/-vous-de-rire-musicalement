@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Piece {
 //	Position dans le labyrinthe
@@ -14,6 +16,8 @@ public class Piece {
 	private boolean ouvertS;
 	private boolean ouvertE;
 	private boolean ouvertO;
+//	Liste des monstres se trouvant dans la pièce
+	private List<Monstre> monstres;
 	
 	public Piece(int x, int y, int longueur, int largeur, Case[][] cases, boolean ouvertN, boolean ouvertS,
 			boolean ouvertE, boolean ouvertO) {
@@ -26,6 +30,8 @@ public class Piece {
 		this.ouvertS = ouvertS;
 		this.ouvertE = ouvertE;
 		this.ouvertO = ouvertO;
+		monstres = new ArrayList<Monstre>();
+
 	}
 	
 //	Les portes sont toutes fermées par défaut
@@ -70,9 +76,12 @@ public class Piece {
 			Nourriture nourriture = new Nourriture(this);
 		}
 		
-//		Dans une pièce il y a au plus une Nourriture
-		if(boolAleatoire()) {
-			Monstre monstre = new Monstre(this);
+//		Dans une pièce il y a au plus "largeur" Monstres
+		for(int i = 0; i < largeur; i++) {
+			if(boolAleatoire()) {
+				Monstre monstre = new Monstre(this);
+				this.monstres.add(monstre);
+			}
 		}
 	}
 	
@@ -81,6 +90,10 @@ public class Piece {
 		return ((int)(Math.random()*2) == 1);
 	}
 	
+	public List<Monstre> getMonstres() {
+		return monstres;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

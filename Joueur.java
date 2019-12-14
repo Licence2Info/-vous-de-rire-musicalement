@@ -159,6 +159,7 @@ public class Joueur extends JLabel {
 		if(p != this.piece) {
 			this.piece = p;
 			this.setMaCase(p.getCase(this.maCase.getX(), p.getLongueur()-1));
+			objets = new ArrayList<Objet>(); // Reinitialiser la liste des objets
 		}
 	}
 	
@@ -167,6 +168,7 @@ public class Joueur extends JLabel {
 		if(p != this.piece) {
 			this.piece = p;
 			this.setMaCase(p.getCase(this.maCase.getX(), 0));
+			objets = new ArrayList<Objet>(); // Reinitialiser la liste des objets
 		}
 	}
 	
@@ -175,6 +177,7 @@ public class Joueur extends JLabel {
 		if(p != this.piece) {
 			this.piece = p;
 			this.setMaCase(p.getCase(0, this.maCase.getY()));
+			objets = new ArrayList<Objet>(); // Reinitialiser la liste des objets
 		}
 	}
 	
@@ -183,6 +186,7 @@ public class Joueur extends JLabel {
 		if(p != this.piece) {
 			this.piece = p;
 			this.setMaCase(p.getCase(p.getLargeur()-1, this.maCase.getY()));
+			objets = new ArrayList<Objet>(); // Reinitialiser la liste des objets
 		}
 	}
 	
@@ -195,9 +199,10 @@ public class Joueur extends JLabel {
 	@Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-//		Image
+//		Image du joueur
 		try {
-			URL imgUrl = getClass().getResource("/Images/"+getClass().getName()+".png");
+//			URL imgUrl = getClass().getResource("/Images/"+getClass().getName()+".png");
+			URL imgUrl = getClass().getResource("/Images/"+getClass().getName()+".gif");
             img = ImageIO.read(imgUrl);
         } catch (IOException e) {
             e.printStackTrace();
@@ -209,6 +214,47 @@ public class Joueur extends JLabel {
 //            g.drawImage(img, 60*x+2, 60*y+2, this);
             g.drawImage(img, 61*x+9, 61*y+9, this);
 
+        }
+        
+        
+        g.drawString("Cordonnées de la pièce : x = " + this.getPiece().getX() + ", y = " + this.getPiece().getY(), 550, 120);
+        g.drawString("Points de vie: " + this.getPtVie(), 550, 170);
+        g.drawString("Points de force: " + this.getPtForce(), 550, 220);
+
+        
+//        Dessiner les objets récupérés par le joueur
+        
+        g.drawString("Objets collectés dans cette pièce:", 550, 270);
+        
+        BufferedImage imgCase = null;
+        try {
+			URL imgCaseUrl = getClass().getResource("/Images/case.png");
+            imgCase = ImageIO.read(imgCaseUrl);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(-1);
+        }
+        if (imgCase != null) {
+        	for (int i = 0; i < objets.size(); i++) {
+//        		Dessiner l'objet
+        		BufferedImage imgObj = null;
+        		try {
+        			URL imgObjUrl = getClass().getResource("/Images/"+objets.get(i).getClass().getName()+".png");
+                    imgObj = ImageIO.read(imgObjUrl);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.exit(-1);
+                }
+                if (imgObj != null) {
+//        		Dessiner la case
+                	g.drawImage(imgCase, 550+63*i, 300, this);
+//              Dessiner l'objet
+                    g.drawImage(imgObj, 550+64*i+9, 300+9, this);
+                }
+        		
+        		
+			}
+            
         }
     }
 	
